@@ -73,10 +73,33 @@ body {
 	font-family: 'Special Elite', sans-serif !important;
 }
 
+h1 {
+	color: black;
+	display: inline-block;
+	font-family: 'Permanent Marker', sans-serif !important;
+	padding: 8px 50px;
+}
+
+h1:first-child {
+	background-image: url("img/tape-1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 .page-tear-effect {
 	fill: currentColor;
 	stroke-width: 0;
 	stroke: currentColor;
+}
+
+.d-none {
+	display: none;
+}
+
+#primary {
+	overflow: hidden;
+	padding-top: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -174,7 +174,7 @@ function frida_zinema_scripts() {
     // The actual Google Fonts stylesheet
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Special+Elite&display=swap',
+        'https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Special+Elite&display=swap',
         [],
         null
     );
