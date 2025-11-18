@@ -59,6 +59,6 @@
             </nav><!-- #site-navigation -->
         </div>
         <svg viewBox="0 0 1408 44" id="page-tear__header" class="page-tear-effect" aria-hidden="true" focusable="false">
-            <use href="#shape-rip" xlink:href="#shape-rip"></use>
+            <use href="#shape-rip-1" xlink:href="#shape-rip-1"></use>
         </svg>
 	</header><!-- #masthead -->

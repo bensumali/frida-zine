@@ -1,30 +1,53 @@
 /** Source for all SCSS files when compiling **/
 
 @import 'header';
+@import 'footer';
 
 // Default font
+* {
+  overscroll-behavior: none;
+}
+
 body {
   font-family: 'Special Elite', sans-serif !important;
+  margin: 0px !important;
 }
 
 h1 {
-  color: black;git
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: black;
   display: inline-block;
   font-family: 'Permanent Marker', sans-serif !important;
   padding: 8px 50px;
 }
 
-h1:first-child {
+body h1:first-child {
   background-image: url('img/tape-1.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+}
+
+body h1:nth-child(2) {
+  background-image: url('img/tape-2.png');
+}
+
+.wp-block-button__link {
+  border-radius: 0px !important;
 }
 
 .page-tear-effect {
   fill: currentColor;
+  position: absolute;
   stroke-width: 0;
   stroke: currentColor;
+}
+
+.page-tear-effect-top {
+  bottom: calc(100% - 1px);
+}
+
+.page-tear {
+  position: relative;
 }
 
 .d-none {
@@ -36,6 +59,26 @@ h1:first-child {
   padding-top: 50px;
 }
 
+.entry-content {
+  margin-top: 0px !important;
+}
+
+.gap__50 {
+  gap: 50px;
+}
+
+.max-width__800 {
+  margin: 0px auto;
+  max-width: 800px;
+}
+
+.padding__50-0 {
+  padding: 50px 0px;
+}
+#page-tear__bottom {
+  rotate: 180deg;
+  fill: white;
+}
 //body.admin-bar {
 //  #primary {
 //    margin-top: 250px;

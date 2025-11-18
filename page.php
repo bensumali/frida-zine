@@ -30,7 +30,9 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
+        <svg viewBox="0 0 1408 44" id="page-tear__bottom" class="page-tear-effect" aria-hidden="true" focusable="false">
+            <use href="#shape-rip-3" xlink:href="#shape-rip-3"></use>
+        </svg>
 	</main><!-- #main -->
 
 <?php
