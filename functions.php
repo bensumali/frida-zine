@@ -187,6 +187,7 @@ function frida_zinema_scripts() {
 	wp_enqueue_style( 'frida-zinema-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'frida-zinema-style', 'rtl', 'replace' );
 	wp_enqueue_script( 'frida-zinema-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'frida-zinema-h1-tape', get_template_directory_uri() . '/js/h1-tape-setter.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -18,7 +18,7 @@ body.admin-bar #masthead {
 	height: 100%;
 	flex-direction: row;
 	margin: 0px auto;
-	max-width: 1300px;
+	max-width: 1400px;
 }
 
 #masthead #masthead-content .site-branding, #masthead #masthead-content #site-navigation {
@@ -48,6 +48,7 @@ body.admin-bar #masthead {
 	color: white;
 	display: flex;
 	height: 100%;
+	padding: 0px 15px;
 	font-size: 18px;
 }
 
@@ -62,11 +63,16 @@ body.admin-bar #masthead {
 
 #primary-menu {
 	height: 100%;
+	justify-content: flex-end;
 }
 
 #primary-menu .nav-menu {
 	height: 100%;
 	justify-content: flex-end;
+}
+
+.menu-menu-1-container {
+	height: 100%;
 }
 
 /*# sourceMappingURL=header.css.map */

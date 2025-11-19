@@ -1,0 +1,26 @@
+#sbi_images {
+	display: flex !important;
+	flex-direction: column;
+}
+
+#sbi_images h2 {
+	text-align: center;
+	width: 100%;
+}
+
+.sbi_photo_wrap {
+	max-width: 300px;
+}
+
+.sbi_photo {
+	margin-top: 18px !important;
+	max-width: 300px;
+	width: 300px;
+}
+
+.sbi_text_force {
+	padding: 15px;
+	white-space: break-spaces;
+}
+
+/*# sourceMappingURL=smash-balloon.css.map */

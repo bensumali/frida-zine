@@ -13,10 +13,16 @@
  */
 
 get_header();
+$header_image = get_the_post_thumbnail_url( get_queried_object_id(), 'full' );
 ?>
 
 	<main id="primary" class="site-main">
-
+        <div id="single-page-header">
+            <div id="single-page-header__image">
+                <img alt="Decorative background image for the page header" src="<?php echo esc_url( $header_image ); ?>" />
+            </div>
+            <h1><?php single_post_title(); ?></h1>
+        </div>
 		<?php
 		if ( have_posts() ) :
 

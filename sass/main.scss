@@ -2,6 +2,7 @@
 
 @import 'header';
 @import 'footer';
+@import 'smash-balloon';
 
 // Default font
 * {
@@ -13,22 +14,23 @@ body {
   margin: 0px !important;
 }
 
-h1 {
+h1, h2 {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
   color: black;
   display: inline-block;
   font-family: 'Permanent Marker', sans-serif !important;
   padding: 8px 50px;
 }
 
-body h1:first-child {
-  background-image: url('img/tape-1.png');
+h2 {
+  font-size: 20px;
 }
 
-body h1:nth-child(2) {
-  background-image: url('img/tape-2.png');
+
+h1 {
+  background-image: url('img/tape-1.png');
 }
 
 .wp-block-button__link {
@@ -55,8 +57,8 @@ body h1:nth-child(2) {
 }
 
 #primary {
-  overflow: hidden;
   padding-top: 50px;
+  position: relative;
 }
 
 .entry-content {
@@ -75,9 +77,45 @@ body h1:nth-child(2) {
 .padding__50-0 {
   padding: 50px 0px;
 }
-#page-tear__bottom {
+.page-tear__bottom {
+  top: calc(100% - 1px);
   rotate: 180deg;
-  fill: white;
+}
+.content-section {
+  margin: 0px auto;
+  max-width: 975px;
+  padding: 50px 15px;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex !important;
+  flex-direction: row;
+  gap: 15px;
+}
+
+
+#single-page-header {
+  align-items: center;
+  background-color: black;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+
+  h1 {
+    position: relative;
+  }
+}
+
+#single-page-header__image {
+  opacity: 0.7;
+  position: absolute;
 }
 //body.admin-bar {
 //  #primary {
