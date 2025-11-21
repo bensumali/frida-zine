@@ -3,6 +3,7 @@
 @import 'header';
 @import 'footer';
 @import 'smash-balloon';
+@import 'archive';
 
 // Default font
 * {
@@ -23,7 +24,9 @@ h1, h2 {
   font-family: 'Permanent Marker', sans-serif !important;
   padding: 8px 50px;
 }
-
+h3 {
+  font-size: 20px;
+}
 h2 {
   font-size: 20px;
 }
@@ -77,6 +80,9 @@ h1 {
 .padding__50-0 {
   padding: 50px 0px;
 }
+.page-tear__top {
+  bottom: calc(100% - 1px);
+}
 .page-tear__bottom {
   top: calc(100% - 1px);
   rotate: 180deg;
@@ -102,7 +108,7 @@ h1 {
   background-color: black;
   background-repeat: no-repeat;
   display: flex;
-  height: 200px;
+  height: 300px;
   justify-content: center;
   overflow: hidden;
   position: relative;

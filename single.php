@@ -7,11 +7,11 @@
  * @package Frida_Zinema
  */
 
+if (get_post_type() !== 'issues') :
 get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -38,3 +38,16 @@ get_header();
 <?php
 get_sidebar();
 get_footer();
+
+else :
+    while ( have_posts() ) :
+			the_post();
+
+            $file = get_field('pdf');
+            $filename = $file["url"];
+
+            wp_redirect($filename);
+
+    endwhile;
+endif;
+?>

@@ -23,41 +23,48 @@ $header_image = get_the_post_thumbnail_url( get_queried_object_id(), 'full' );
             </div>
             <h1><?php single_post_title(); ?></h1>
         </div>
-		<?php
-		if ( have_posts() ) :
+        <div id="single-page-content" class="page-tear">
+            <svg viewBox="0 0 1408 44" class="page-tear-effect page-tear__top" style="fill: white;" aria-hidden="true" focusable="false">
+                <use href="#shape-rip-2" xlink:href="#shape-rip-2"></use>
+            </svg>
+            <?php
+            if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+                if ( is_home() && ! is_front_page() ) :
+                    ?>
+                    <header>
+                        <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+                    </header>
+                <?php
+                endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+                /* Start the Loop */
+                while ( have_posts() ) :
+                    the_post();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+                    /*
+                     * Include the Post-Type-specific template for the content.
+                     * If you want to override this in a child theme, then include a file
+                     * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+                     */
+                    get_template_part( 'template-parts/content', get_post_type() );
 
-			endwhile;
+                endwhile;
 
-			the_posts_navigation();
+                the_posts_navigation();
 
-		else :
+            else :
 
-			get_template_part( 'template-parts/content', 'none' );
+                get_template_part( 'template-parts/content', 'none' );
 
-		endif;
-		?>
-
+            endif;
+            get_sidebar();
+            ?>
+            <svg viewBox="0 0 1408 44" class="page-tear-effect page-tear__bottom" style="fill: white;" aria-hidden="true" focusable="false">
+                <use href="#shape-rip-3" xlink:href="#shape-rip-3"></use>
+            </svg>
+        </div>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

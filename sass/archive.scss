@@ -1,0 +1,79 @@
+.archive-contents {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 48px;
+  gap: 10px;
+
+  .widget-area {
+    padding: 10px;
+    width: 275px;
+    .wpc-filters-section {
+      background-color: #F6F6F6;
+      max-width: 100% !important;
+      padding: 13px;
+      width: 100% !important;
+    }
+    .wpc-filter-search-field {
+      background-color: #F0F0F0;
+      border: 1px solid #CBCBCB;
+      border-radius: 0px;
+      &::placeholder {
+        color: #CBCBCB !important;
+      }
+    }
+    .wpc-filters-ul-list {
+      margin-bottom: 0px;
+      max-height: 140px !important;
+      overflow-x: hidden !important;
+      position: relative;
+      li {
+        margin-bottom: 0px;
+      }
+      .ps__rail-y {
+        background-color: #e7e7e7;
+        opacity: 1 !important;
+        width: 8px;
+        visibility: visible !important;
+      }
+      .ps__thumb-y {
+        border-radius: 0px;
+        opacity: 1 !important;
+        right: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.filter-results {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  padding: 10px;
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+
+    h3 {
+      margin-bottom: 0px;
+    }
+
+    .entry-header {
+      width: 100%;
+    }
+    .entry-content {
+      width: 100%;
+      .entry-content__publish-date {
+        color: #E95640;
+        font-size: 13px;
+        width: 100%;
+      }
+      .entry-content__issue-number {
+        font-size: 13px;
+      }
+    }
+  }
+}
