@@ -12,7 +12,7 @@ body.admin-bar {
   height: 50px;
   top: 0;
   width: 100vw;
-  z-index: 2;
+  z-index: 4;
 
   #masthead-content {
     display: flex;
@@ -33,7 +33,7 @@ body.admin-bar {
         position: absolute;
         rotate: -9.3deg;
         width: 150px;
-        z-index: 1;
+        z-index: 4;
       }
     }
 

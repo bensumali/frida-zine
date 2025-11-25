@@ -12,7 +12,20 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-
+        <div class="site-footer__overlay"></div>
+        <div class="site-footer__content-container">
+            <div class="site-footer__content-container__left">
+                <div>Follow Us</div>
+                <div class="site-footer__content-container__left__socials">
+                    <div>zine@thefridacinema.org</div>
+                    <div>@thefridazinema</div>
+                    <div>discord.gg/fridazinema</div>
+                </div>
+            </div>
+            <div class="site-footer__content-container__right">
+                <img src="<?php echo get_template_directory_uri() . '/img/frida-logo.png'; ?>" />
+            </div>
+        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

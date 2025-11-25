@@ -7,7 +7,7 @@
  * @package Frida_Zinema
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) || ! is_archive() ) {
 	return;
 }
 ?>

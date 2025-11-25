@@ -45,6 +45,7 @@ h1 {
   position: absolute;
   stroke-width: 0;
   stroke: currentColor;
+  z-index: 2;
 }
 
 .page-tear-effect-top {
@@ -122,6 +123,9 @@ h1 {
 #single-page-header__image {
   opacity: 0.7;
   position: absolute;
+}
+.site-main {
+  padding-bottom: 28.25px;
 }
 //body.admin-bar {
 //  #primary {

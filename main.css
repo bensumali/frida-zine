@@ -11,7 +11,7 @@ body.admin-bar #masthead {
 	height: 50px;
 	top: 0;
 	width: 100vw;
-	z-index: 2;
+	z-index: 4;
 }
 
 #masthead #masthead-content {
@@ -37,7 +37,7 @@ body.admin-bar #masthead {
 	position: absolute;
 	rotate: -9.3deg;
 	width: 150px;
-	z-index: 1;
+	z-index: 4;
 }
 
 #masthead #masthead-content .site-title {
@@ -80,7 +80,37 @@ body.admin-bar #masthead {
 	background: url("img/crumpled-paper.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 140px;
+	padding: 75px 15px 25px 15px;
+	position: relative;
+}
+
+.site-footer .site-footer__overlay {
+	background-color: black;
+	height: 100%;
+	left: 0px;
+	opacity: 0.7;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+
+.site-footer .site-footer__content-container {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	justify-content: space-between;
+	margin: 0px auto;
+	max-width: 1400px;
+	position: relative;
+}
+
+.site-footer .site-footer__content-container .site-footer__content-container__left {
+	color: white;
+}
+
+.site-footer .site-footer__content-container .site-footer__content-container__right img {
+	height: 50px;
 }
 
 #sbi_images {
@@ -239,6 +269,7 @@ h1 {
 	position: absolute;
 	stroke-width: 0;
 	stroke: currentColor;
+	z-index: 2;
 }
 
 .page-tear-effect-top {
@@ -320,6 +351,10 @@ h1 {
 #single-page-header__image {
 	opacity: 0.7;
 	position: absolute;
+}
+
+.site-main {
+	padding-bottom: 28.25px;
 }
 
 /*# sourceMappingURL=main.css.map */
