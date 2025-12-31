@@ -55,32 +55,70 @@
 	<?php endif; ?>
     <?php if(is_front_page()) : ?>
         <script>
-            let ig_posts = document.getElementById('sbi_images');
-            for(let i = 0; i < ig_posts.getElementsByClassName('sbi_item').length; i++) {
-                let post = ig_posts.getElementsByClassName('sbi_item')[i];
-                let img = post.getElementsByTagName('img')[0];
-                let timestamp = post.dataset.date;
-                let date = new Date(timestamp * 1000);
-                let text_div = document.createElement("div");
-                text_div.classList.add('sbi_text_force');
-                if(img) {
+            function processInstagramPosts(root = document) {
+                let ig_posts = document.getElementById('sbi_images');
+                if (!ig_posts) return;
+
+                let items = ig_posts.getElementsByClassName('sbi_item');
+
+                for (let i = 0; i < items.length; i++) {
+                    let post = items[i];
+
+                    // Prevent running twice on the same post
+                    if (post.dataset.processed === "true") continue;
+                    post.dataset.processed = "true";
+
+                    let img = post.getElementsByTagName('img')[0];
+                    if (!img) continue;
+
+                    let timestamp = post.dataset.date;
+                    let date = new Date(timestamp * 1000);
+
                     let date_header = document.createElement('h2');
-                    let content = document.createElement('div');
                     date_header.innerHTML = date.toLocaleDateString(undefined, {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
                     });
-                    let new_container = document.createElement('div');
-                    new_container.classList.add('flex-row');
+
+                    let text_div = document.createElement('div');
+                    text_div.classList.add('sbi_text_force');
+
+                    let content = document.createElement('div');
                     content.innerHTML = img.alt;
                     text_div.append(content);
-                    new_container.append(post.getElementsByClassName('sbi_photo_wrap')[0]);
-                    new_container.append(text_div);
-                    post.prepend(new_container);
-                    post.prepend(date_header);
+
+                    let new_container = document.createElement('div');
+                    new_container.classList.add('flex-row');
+
+                    let photoWrap = post.getElementsByClassName('sbi_photo_wrap')[0];
+                    if (photoWrap) {
+                        new_container.append(photoWrap);
+                        new_container.append(text_div);
+                        post.prepend(new_container);
+                        post.prepend(date_header);
+                    }
                 }
             }
+
+            // Run once on initial load
+            processInstagramPosts();
+
+            // Observe future additions
+            const observer = new MutationObserver((mutations) => {
+                for (const mutation of mutations) {
+                    if (mutation.addedNodes.length) {
+                        processInstagramPosts();
+                    }
+                }
+            });
+
+            const target = document.getElementById('sbi_images');
+            if (target) {
+                observer.observe(target, {
+                    childList: true,
+                    subtree: true
+                })
         </script>
     <?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
