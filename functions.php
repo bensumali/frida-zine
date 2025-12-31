@@ -276,7 +276,7 @@ function frida_limit_archive_posts( $query ) {
         $query->is_main_query() &&
         is_post_type_archive( 'issues' )
     ) {
-        $query->set( 'posts_per_page', 40 );
+        $query->set( 'posts_per_page', 10 );
     }
 }
 add_action( 'pre_get_posts', 'frida_limit_archive_posts' );
