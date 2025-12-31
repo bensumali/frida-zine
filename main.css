@@ -446,7 +446,7 @@ h1 {
 @media (max-width: 600px) {
 	#single-page-header__image img {
 		height: 100%;
-		max-width: auto !important;
+		max-width: none !important;
 		width: auto !important;
 	}
 }

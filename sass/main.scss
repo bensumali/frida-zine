@@ -133,7 +133,7 @@ h1 {
   @media (max-width: 600px) {
     img {
       height: 100%;
-      max-width: auto !important;
+      max-width: none !important;
       width: auto !important;
     }
   }
