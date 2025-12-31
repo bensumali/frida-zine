@@ -68,10 +68,10 @@
     @media (max-width: 600px) {
       width: 100%;
       .entry-header {
-        width: auto;
+        width: auto !important;
       }
       .entry-content {
-        width: auto
+        width: auto !important;
       }
     }
 

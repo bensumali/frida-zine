@@ -265,10 +265,10 @@ body.admin-bar #masthead {
 		width: 100%;
 	}
 	.filter-results article .entry-header {
-		width: auto;
+		width: auto !important;
 	}
 	.filter-results article .entry-content {
-		width: auto;
+		width: auto !important;
 	}
 }
 
