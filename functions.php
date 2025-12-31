@@ -279,6 +279,7 @@ function issues_archive_order_by_publish_date( $query )
 
 function frida_limit_archive_posts( $query ) {
     if (
+        ! is_admin() &&
         $query->is_main_query() &&
         is_post_type_archive( 'issues' )
     ) {
