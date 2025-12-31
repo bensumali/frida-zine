@@ -71,7 +71,7 @@ body.admin-bar #masthead {
 	justify-content: flex-end;
 }
 
-.menu-menu-1-container {
+#site-navigation > div {
 	height: 100%;
 }
 
