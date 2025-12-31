@@ -155,6 +155,10 @@ body.admin-bar #masthead {
 	width: 275px;
 }
 
+.archive-contents .widget-area:empty {
+	width: 0px;
+}
+
 .archive-contents .widget-area .wpc-filters-section {
 	background-color: #F6F6F6;
 	max-width: 100% !important;

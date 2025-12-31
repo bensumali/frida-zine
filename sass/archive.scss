@@ -7,6 +7,10 @@
   .widget-area {
     padding: 10px;
     width: 275px;
+
+    &:empty {
+      width: 0px;
+    }
     .wpc-filters-section {
       background-color: #F6F6F6;
       max-width: 100% !important;
