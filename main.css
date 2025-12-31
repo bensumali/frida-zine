@@ -443,8 +443,11 @@ h1 {
 	position: absolute;
 }
 
-#single-page-header__image img {
-	height: 100%;
+@media (max-width: 600px) {
+	#single-page-header__image img {
+		height: 100%;
+		width: auto !important;
+	}
 }
 
 .site-main {
