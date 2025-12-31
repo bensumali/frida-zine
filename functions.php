@@ -106,8 +106,8 @@ add_action( 'after_setup_theme', 'frida_zinema_setup' );
  * Add the compiled main.css stylesheet to the site.
  */
 function frida_enqueue_styles() {
-    $style_path = get_template_directory() . '/dist/css/main.css';
-    $style_uri  = get_template_directory_uri() . '/dist/css/main.css';
+    $style_path = get_stylesheet_directory() . '/main.css';
+    $style_uri  = get_stylesheet_directory_uri() . '/main.css';
 
     wp_enqueue_style(
         'frida-main',
