@@ -47,7 +47,7 @@
                 <?php endif; ?>
             </div><!-- .site-branding -->
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'frida-zinema' ); ?></button>
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
                 <?php
                 wp_nav_menu(
                     array(
