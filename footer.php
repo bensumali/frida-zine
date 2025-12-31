@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="site-footer__content-container__right">
-                <img src="<?php echo get_template_directory_uri() . '/img/frida-logo.png'; ?>" />
+                <a href="https://thefridacinema.org" target="_blank"><img src="<?php echo get_template_directory_uri() . '/img/frida-logo.png'; ?>" /></a>
             </div>
         </div>
 	</footer><!-- #colophon -->
