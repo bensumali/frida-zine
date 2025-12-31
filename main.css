@@ -203,6 +203,7 @@ body.admin-bar #masthead {
 	flex-wrap: wrap;
 	gap: 25px;
 	padding: 10px;
+	row-gap: 50px;
 }
 
 .filter-results article {
