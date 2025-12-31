@@ -34,7 +34,12 @@ h2 {
 
 h1 {
   background-image: url('img/tape-1.png');
-  font-size: 40px !important;
+  @media (min-width: 601px) {
+    font-size: 40px !important;
+  }
+  @media (max-width: 600px) {
+    font-size: 30px !important;
+  }
 }
 
 .wp-block-button__link {
