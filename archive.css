@@ -89,4 +89,24 @@
 	font-size: 13px;
 }
 
+.wpc-custom-selected-terms ul.wpc-filter-chips-list {
+	flex-wrap: wrap;
+}
+
+.issue-cover {
+	display: flex;
+	align-items: center;
+	height: 330px;
+}
+
+.issue-cover a {
+	height: 100%;
+}
+
+.issue-cover a img {
+	max-height: 100% !important;
+	max-width: auto;
+	width: auto !important;
+}
+
 /*# sourceMappingURL=archive.css.map */

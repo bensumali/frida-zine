@@ -31,6 +31,11 @@
 	color: white;
 }
 
+.site-footer .site-footer__content-container .site-footer__content-container__left a {
+	color: white;
+	text-decoration: none;
+}
+
 .site-footer .site-footer__content-container .site-footer__content-container__right img {
 	height: 50px;
 }

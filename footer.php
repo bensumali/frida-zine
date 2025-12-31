@@ -15,11 +15,11 @@
         <div class="site-footer__overlay"></div>
         <div class="site-footer__content-container">
             <div class="site-footer__content-container__left">
-                <div>Follow Us</div>
+                <div>Follow Us:</div>
                 <div class="site-footer__content-container__left__socials">
-                    <div>zine@thefridacinema.org</div>
-                    <div>@thefridazinema</div>
-                    <div>discord.gg/fridazinema</div>
+                    <div><a href="mailto:zine@thefridacinema.org" target="_blank"><i class="fa-regular fa-envelope"></i> zine@thefridacinema.org</a></div>
+                    <div><a href="https://instagram.com/thefridazinema" target="_blank"><i class="fa-brands fa-instagram"></i>  @thefridazinema</a></div>
+                    <div><a href="https://discord.gg/q38duFbjqm" target="_blank"><i class="fa-brands fa-discord"></i> discord.gg/fridazinema</a></div>
                 </div>
             </div>
             <div class="site-footer__content-container__right">

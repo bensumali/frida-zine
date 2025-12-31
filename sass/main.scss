@@ -18,7 +18,7 @@ body {
 h1, h2 {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   color: black;
   display: inline-block;
   font-family: 'Permanent Marker', sans-serif !important;
@@ -34,6 +34,7 @@ h2 {
 
 h1 {
   background-image: url('img/tape-1.png');
+  font-size: 40px !important;
 }
 
 .wp-block-button__link {

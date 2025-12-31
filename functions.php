@@ -191,12 +191,85 @@ function frida_zinema_scripts() {
     wp_enqueue_script( 'frida-zinema-h1-tape', get_template_directory_uri() . '/js/h1-tape-setter.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'frida-zinema-perfect-scrollbar', get_template_directory_uri() . '/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'frida-zinema-scrollbar', get_template_directory_uri() . '/js/scrollbar.js', array(), _S_VERSION, true );
+    wp_enqueue_script('frida-zinema-fontawesome', 'https://kit.fontawesome.com/1eed4665a1.js', array(), _S_VERSION, true );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'frida_zinema_scripts' );
+
+
+add_filter( 'manage_edit-issues_columns', 'set_custom_issues_columns' );
+
+function set_custom_issues_columns($columns) {
+    $new = [];
+
+    foreach ( $columns as $key => $label ) {
+        $new[$key] = $label;
+
+        if ( $key === 'title' ) {
+            $new['publish_date'] = __( 'Publish Date', '' );
+        }
+    }
+
+    return $new;
+}
+
+add_action( 'manage_issues_posts_custom_column', 'custom_issues_column_content', 10, 2 );
+function custom_issues_column_content( $column, $post_id ) {
+    if ( $column === 'publish_date' ) {
+
+        $value = get_post_meta( $post_id, 'publish_date', true );
+
+        if ($value) {
+            $formatted = date("F Y", strtotime($value));
+            echo esc_html($formatted);
+        } else {
+            echo '—';
+        }
+    }
+}
+add_filter( 'manage_edit-issues_sortable_columns', 'set_issues_sortable_columns' );
+function set_issues_sortable_columns( $columns ) {
+    $columns['publish_date'] = 'publish_date';
+    return $columns;
+}
+
+
+add_action( 'pre_get_posts', 'issues_publish_date_sorting' );
+function issues_publish_date_sorting( $query ) {
+
+    if( ! is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    if ( $query->get('post_type') === 'issues' && $query->get('orderby') === 'publish_date' ) {
+
+        $query->set( 'meta_key', 'publish_date' );
+        $query->set( 'orderby', 'meta_value' );
+        $query->set( 'order', $query->get('order') ?: 'ASC' );
+    }
+}
+
+add_action( 'pre_get_posts', 'issues_archive_order_by_publish_date' );
+function issues_archive_order_by_publish_date( $query )
+{
+
+    if (!$query->is_main_query() || is_admin()) {
+        return;
+    }
+
+    if ($query->is_post_type_archive('issues')) {
+
+        $query->set('meta_key', 'publish_date');
+
+        $query->set('orderby', 'meta_value');
+
+        $query->set('order', 'DESC'); // newest first
+    }
+}
 
 /**
  * Implement the Custom Header feature.

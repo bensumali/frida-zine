@@ -109,6 +109,11 @@ body.admin-bar #masthead {
 	color: white;
 }
 
+.site-footer .site-footer__content-container .site-footer__content-container__left a {
+	color: white;
+	text-decoration: none;
+}
+
 .site-footer .site-footer__content-container .site-footer__content-container__right img {
 	height: 50px;
 }
@@ -229,6 +234,26 @@ body.admin-bar #masthead {
 	font-size: 13px;
 }
 
+.wpc-custom-selected-terms ul.wpc-filter-chips-list {
+	flex-wrap: wrap;
+}
+
+.issue-cover {
+	display: flex;
+	align-items: center;
+	height: 330px;
+}
+
+.issue-cover a {
+	height: 100%;
+}
+
+.issue-cover a img {
+	max-height: 100% !important;
+	max-width: auto;
+	width: auto !important;
+}
+
 * {
 	overscroll-behavior: none;
 }
@@ -241,7 +266,7 @@ body {
 h1, h2 {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100% 100%;
 	color: black;
 	display: inline-block;
 	font-family: 'Permanent Marker', sans-serif !important;
@@ -258,6 +283,7 @@ h2 {
 
 h1 {
 	background-image: url("img/tape-1.png");
+	font-size: 40px !important;
 }
 
 .wp-block-button__link {
