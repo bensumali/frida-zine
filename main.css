@@ -155,7 +155,7 @@ body.admin-bar #masthead {
 	width: 275px;
 }
 
-.archive-contents .widget-area:empty {
+.archive-contents .widget-area:not(:has(*)) {
 	width: 0px;
 }
 

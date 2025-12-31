@@ -8,7 +8,7 @@
     padding: 10px;
     width: 275px;
 
-    &:empty {
+    &:not(:has(*)) {
       width: 0px;
     }
     .wpc-filters-section {
