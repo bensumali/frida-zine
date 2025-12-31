@@ -315,5 +315,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
+/**
+ * Allow excerpts to be editable on pages.
+ */
+add_post_type_support('page', 'excerpt');
 
