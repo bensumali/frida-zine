@@ -118,7 +118,8 @@
                 observer.observe(target, {
                     childList: true,
                     subtree: true
-                })
+                });
+            }
         </script>
     <?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
