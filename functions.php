@@ -105,12 +105,18 @@ add_action( 'after_setup_theme', 'frida_zinema_setup' );
 /**
  * Add the compiled main.css stylesheet to the site.
  */
-add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style( 'custom-styling', get_stylesheet_directory_uri() . '/main.css' );
-});
-add_action( 'after_setup_theme', function() {
-    add_editor_style(get_stylesheet_directory_uri() . '/main.css');
-});
+function frida_enqueue_styles() {
+    $style_path = get_template_directory() . '/dist/css/main.css';
+    $style_uri  = get_template_directory_uri() . '/dist/css/main.css';
+
+    wp_enqueue_style(
+        'frida-main',
+        $style_uri,
+        array(),
+        filemtime( $style_path )
+    );
+}
+add_action( 'wp_enqueue_scripts', 'frida_enqueue_styles' );
 
 /**
  * Add page tear elements for use
