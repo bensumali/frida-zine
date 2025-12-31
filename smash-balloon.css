@@ -23,4 +23,11 @@
 	white-space: break-spaces;
 }
 
+@media (max-width: 769px) {
+	.sbi_item sbi_type_carousel .flex-row {
+		align-items: center;
+		flex-direction: column !important;
+	}
+}
+
 /*# sourceMappingURL=smash-balloon.css.map */
