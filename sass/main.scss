@@ -129,6 +129,10 @@ h1 {
 #single-page-header__image {
   opacity: 0.7;
   position: absolute;
+
+  img {
+    height: 100%;
+  }
 }
 .site-main {
   padding-bottom: 28.25px;

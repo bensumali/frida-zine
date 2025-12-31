@@ -193,6 +193,7 @@ body.admin-bar #masthead {
 
 .archive-contents .widget-area:not(:has(*)) {
 	width: 0px;
+	padding: 0px;
 }
 
 .archive-contents .widget-area .wpc-filters-section {
@@ -440,6 +441,10 @@ h1 {
 #single-page-header__image {
 	opacity: 0.7;
 	position: absolute;
+}
+
+#single-page-header__image img {
+	height: 100%;
 }
 
 .site-main {

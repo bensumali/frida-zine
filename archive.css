@@ -12,6 +12,7 @@
 
 .archive-contents .widget-area:not(:has(*)) {
 	width: 0px;
+	padding: 0px;
 }
 
 .archive-contents .widget-area .wpc-filters-section {

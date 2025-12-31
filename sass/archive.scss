@@ -10,6 +10,7 @@
 
     &:not(:has(*)) {
       width: 0px;
+      padding: 0px;
     }
     .wpc-filters-section {
       background-color: #F6F6F6;
