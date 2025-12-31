@@ -252,7 +252,24 @@ body.admin-bar #masthead {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 300px;
+}
+
+@media (min-width: 601px) {
+	.filter-results article {
+		width: 300px;
+	}
+}
+
+@media (max-width: 600px) {
+	.filter-results article {
+		width: 100%;
+	}
+	.filter-results article .entry-header {
+		width: auto;
+	}
+	.filter-results article .entry-content {
+		width: auto;
+	}
 }
 
 .filter-results article h3 {

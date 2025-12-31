@@ -62,7 +62,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    @media (min-width: 601px) {
+      width: 300px;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+      .entry-header {
+        width: auto;
+      }
+      .entry-content {
+        width: auto
+      }
+    }
+
 
     h3 {
       margin-bottom: 0px;
