@@ -115,4 +115,14 @@
 	width: auto !important;
 }
 
+.navigation.pagination {
+	width: 100%;
+}
+
+.navigation.pagination .nav-links {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+}
+
 /*# sourceMappingURL=archive.css.map */
