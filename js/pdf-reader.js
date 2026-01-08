@@ -31,18 +31,25 @@ function calculatePageDimensions(canvas, page) {
     let containerWidth = canvas.parentElement.getBoundingClientRect().width;
 
     // Base viewport at scale = 1 (PDF’s natural size)
-    let baseViewport = page.getViewport({ scale: 1 });
+    let baseViewport = page.getViewport({ scale: 3 });
 
     // Only scale down if PDF is wider than viewport
     let scale = baseViewport.width > containerWidth
-        ? containerWidth / baseViewport.width
-        : 1;
+        ? containerWidth / baseViewport.width * 3
+        : 3;
     let viewport = page.getViewport({scale: scale});
 
 
 
     canvas.height = viewport.height;
     canvas.width = viewport.width;
+
+    const pageWidthScale = canvas.parentElement.getBoundingClientRect().width / page.view[2];
+    const pageHeightScale = canvas.parentElement.getBoundingClientRect().height / page.view[3];
+
+    var displayWidth =  Math.min(pageWidthScale, pageHeightScale);
+    canvas.style.width = `${(viewport.width * displayWidth) / scale}px`;
+    canvas.style.height = `${(viewport.height * displayWidth) / scale}px`;
 
 
 
