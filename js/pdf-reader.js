@@ -4,8 +4,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
     '/wp-content/themes/frida-zinema/js/pdfjs/build/pdf.worker.mjs';
 
 
-// const canvas = document.getElementById('pdf-reader__canvas');
-
 
 
 var pdfDoc = null,
@@ -22,35 +20,44 @@ const url = canvas.dataset.pdf;
 
 pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
     pdfDoc = pdfDoc_;
-    // document.getElementById('page_count').textContent = pdfDoc.numPages;
+    document.getElementById('pdf-reader__page-info__total-pages').textContent = pdfDoc.numPages;
 
     // Initial/first page rendering
     renderPage(pageNum);
 });
-// loadingTask.promise.then(pdf => {
-//     return pdf.getPage(1);
-// }).then(page => {
-//     const viewport = page.getViewport({ scale: 1 });
-//     canvas.width = viewport.width;
-//     canvas.height = viewport.height;
-//
-//     const renderContext = {
-//         canvasContext: ctx,
-//         viewport: viewport
-//     };
-//
-//     page.render(renderContext);
-// });
+
+
+function calculatePageDimensions(canvas, page) {
+    let containerWidth = canvas.parentElement.getBoundingClientRect().width;
+
+    // Base viewport at scale = 1 (PDF’s natural size)
+    let baseViewport = page.getViewport({ scale: 1 });
+
+    // Only scale down if PDF is wider than viewport
+    let scale = baseViewport.width > containerWidth
+        ? containerWidth / baseViewport.width
+        : 1;
+    let viewport = page.getViewport({scale: scale});
+
+
+
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+
+
+    return viewport;
+}
 
 function renderPage(num) {
     pageRendering = true;
     // Using promise to fetch the page
     pdfDoc.getPage(num).then(function(page) {
-        var viewport = page.getViewport({scale: scale});
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
 
-        // Render PDF page into canvas context
+        var viewport = calculatePageDimensions(canvas, page);
+
+
+
         var renderContext = {
             canvasContext: ctx,
             viewport: viewport
@@ -68,8 +75,7 @@ function renderPage(num) {
         });
     });
 
-    // Update page counters
-    // document.getElementById('page_num').textContent = num;
+     document.getElementById('pdf-reader__page-info__current-page').textContent = num;
 }
 
 /**

@@ -48,9 +48,14 @@ else :
     endwhile;
     ?>
     <div id="pdf-reader">
-        <button id="pdf-reader__controls__button__prev" class="pdf-reader__control"><i class="fa-solid fa-angle-left"></i> PREV</button>
-        <canvas id="pdf-reader__canvas" data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
-        <button id="pdf-reader__controls__button__next" class="pdf-reader__control">NEXT <i class="fa-solid fa-angle-right"></i> </button>
+        <div id="pdf-reader__contents">
+            <button id="pdf-reader__controls__button__prev" class="pdf-reader__control"><i class="fa-solid fa-angle-left"></i> PREV</button>
+            <canvas id="pdf-reader__canvas" data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+            <button id="pdf-reader__controls__button__next" class="pdf-reader__control">NEXT <i class="fa-solid fa-angle-right"></i> </button>
+        </div>
+        <div id="pdf-reader__page-info">
+            <span id="pdf-reader__page-info__current-page"></span> / <span id="pdf-reader__page-info__total-pages"></span>
+        </div>
     </div>
     <link href="
 https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/web/pdf_viewer.min.css
