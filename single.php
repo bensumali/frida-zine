@@ -6,9 +6,9 @@
  *
  * @package Frida_Zinema
  */
-
-if (get_post_type() !== 'issues') :
 get_header();
+if (get_post_type() !== 'issues') :
+
 ?>
 
 	<main id="primary" class="site-main">
@@ -36,18 +36,30 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
-get_footer();
+
 
 else :
     while ( have_posts() ) :
-			the_post();
+        the_post();
 
-            $file = get_field('pdf');
-            $filename = $file["url"];
-
-            wp_redirect($filename);
-
+        $file = get_field('pdf');
+        $pdf_url = $file['url'];
     endwhile;
+    ?>
+    <div id="pdf-reader">
+        <div id="pdf-reader__controls">
+            <button id="pdf-reader__controls__button__next">Next</button>
+            <button id="pdf-reader__controls__button__prev">Previous</button>
+        </div>
+        <canvas id="pdf-reader__canvas"
+                data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+    </div>
+    <link href="
+https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/web/pdf_viewer.min.css
+" rel="stylesheet">
+<!--    <script type="module" src="http://localhost:8888/wp-content/themes/frida-zinema/js/pdf-reader.js"></script>-->
+<?php
 endif;
+get_sidebar();
+get_footer();
 ?>

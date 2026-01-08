@@ -198,6 +198,12 @@ function frida_zinema_scripts() {
     wp_enqueue_script( 'frida-zinema-perfect-scrollbar', get_template_directory_uri() . '/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'frida-zinema-scrollbar', get_template_directory_uri() . '/js/scrollbar.js', array(), _S_VERSION, true );
     wp_enqueue_script('frida-zinema-fontawesome', 'https://kit.fontawesome.com/1eed4665a1.js', array(), _S_VERSION, true );
+    wp_enqueue_style(
+        'pdf-viewer',
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf_viewer.min.css',
+        [],
+        '5.4.149'
+    );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -319,4 +325,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Allow excerpts to be editable on pages.
  */
 add_post_type_support('page', 'excerpt');
+
+function frida_enqueue_pdf_reader() {
+    $script_path = get_template_directory() . '/js/pdf-reader.js';
+    $script_uri  = get_template_directory_uri() . '/js/pdf-reader.js';
+
+    wp_enqueue_script_module(
+        'frida-pdf-reader',
+        $script_uri,
+        [],
+        filemtime($script_path)
+    );
+
+    // 🔑 This is REQUIRED for import/export
+    wp_script_add_data('frida-pdf-reader', 'type', 'module');
+
+    // Pass PDF URL to JS
+    if ($file = get_field('pdf')) {
+        wp_localize_script(
+            'frida-pdf-reader',
+            'PDF_DATA',
+            [
+                'url' => $file['url'],
+            ]
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'frida_enqueue_pdf_reader');
 

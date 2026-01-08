@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "pdf-reader.css",
+	"sources": [
+		"sass/pdf-reader.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,WAAW,CAAC;CACV,WAAW,EAAE,MAAM;CACnB,gBAAgB,EAAE,OAAO;CACzB,OAAO,EAAE,IAAI;CACb,MAAM,EAAE,KAAK;CACb,eAAe,EAAE,MAAM;CACvB,KAAK,EAAE,KAAK;CACb;;AACD,AAAA,mBAAmB,CAAC;CAClB,MAAM,EAAE,KAAK;CACb,KAAK,EAAE,eAAe;CACvB"
+}
