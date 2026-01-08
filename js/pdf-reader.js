@@ -108,3 +108,9 @@ function onNextPage() {
 }
 document.getElementById('pdf-reader__controls__button__next').addEventListener('click', onNextPage);
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft')
+        onPrevPage();
+    else if (event.key === 'ArrowRight')
+        onNextPage();
+});

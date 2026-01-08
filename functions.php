@@ -327,28 +327,30 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_post_type_support('page', 'excerpt');
 
 function frida_enqueue_pdf_reader() {
-    $script_path = get_template_directory() . '/js/pdf-reader.js';
-    $script_uri  = get_template_directory_uri() . '/js/pdf-reader.js';
+    if ( is_singular( 'issues' ) || is_post_type_archive( 'issues' ) ) {
+        $script_path = get_template_directory() . '/js/pdf-reader.js';
+        $script_uri = get_template_directory_uri() . '/js/pdf-reader.js';
 
-    wp_enqueue_script_module(
-        'frida-pdf-reader',
-        $script_uri,
-        [],
-        filemtime($script_path)
-    );
-
-    // 🔑 This is REQUIRED for import/export
-    wp_script_add_data('frida-pdf-reader', 'type', 'module');
-
-    // Pass PDF URL to JS
-    if ($file = get_field('pdf')) {
-        wp_localize_script(
+        wp_enqueue_script_module(
             'frida-pdf-reader',
-            'PDF_DATA',
-            [
-                'url' => $file['url'],
-            ]
+            $script_uri,
+            [],
+            filemtime($script_path)
         );
+
+        // 🔑 This is REQUIRED for import/export
+        wp_script_add_data('frida-pdf-reader', 'type', 'module');
+
+        // Pass PDF URL to JS
+        if ($file = get_field('pdf')) {
+            wp_localize_script(
+                'frida-pdf-reader',
+                'PDF_DATA',
+                [
+                    'url' => $file['url'],
+                ]
+            );
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'frida_enqueue_pdf_reader');

@@ -6,8 +6,8 @@
  *
  * @package Frida_Zinema
  */
-get_header();
 if (get_post_type() !== 'issues') :
+    get_header();
 
 ?>
 
@@ -39,6 +39,7 @@ if (get_post_type() !== 'issues') :
 
 
 else :
+    get_template_part( 'template-parts/head' );
     while ( have_posts() ) :
         the_post();
 
@@ -47,19 +48,15 @@ else :
     endwhile;
     ?>
     <div id="pdf-reader">
-        <div id="pdf-reader__controls">
-            <button id="pdf-reader__controls__button__next">Next</button>
-            <button id="pdf-reader__controls__button__prev">Previous</button>
-        </div>
-        <canvas id="pdf-reader__canvas"
-                data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+        <button id="pdf-reader__controls__button__prev" class="pdf-reader__control"><i class="fa-solid fa-angle-left"></i> PREV</button>
+        <canvas id="pdf-reader__canvas" data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+        <button id="pdf-reader__controls__button__next" class="pdf-reader__control">NEXT <i class="fa-solid fa-angle-right"></i> </button>
     </div>
     <link href="
 https://cdn.jsdelivr.net/npm/pdfjs-dist@5.4.530/web/pdf_viewer.min.css
 " rel="stylesheet">
-<!--    <script type="module" src="http://localhost:8888/wp-content/themes/frida-zinema/js/pdf-reader.js"></script>-->
 <?php
+    get_sidebar();
+    get_footer();
 endif;
-get_sidebar();
-get_footer();
 ?>
