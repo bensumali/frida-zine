@@ -50,7 +50,9 @@ else :
     <div id="pdf-reader">
         <div id="pdf-reader__contents">
             <button id="pdf-reader__controls__button__prev" class="pdf-reader__control"><i class="fa-solid fa-angle-left"></i> PREV</button>
-            <canvas id="pdf-reader__canvas" data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+            <canvas id="pdf-reader__canvas__prev">"></canvas>
+            <canvas id="pdf-reader__canvas__current" data-pdf="<?php echo esc_url( $pdf_url );?>"></canvas>
+            <canvas id="pdf-reader__canvas__next"></canvas>
             <button id="pdf-reader__controls__button__next" class="pdf-reader__control">NEXT <i class="fa-solid fa-angle-right"></i> </button>
         </div>
         <div id="pdf-reader__page-info">

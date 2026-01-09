@@ -4,23 +4,33 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
     '/wp-content/themes/frida-zinema/js/pdfjs/build/pdf.worker.mjs';
 
 
-
-
 var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
     pageNumPending = null,
+    pageTotal= 0,
     scale = 1,
-    canvas = document.getElementById('pdf-reader__canvas'),
-    ctx = canvas.getContext('2d');
+    canvases = {
+        current: document.getElementById('pdf-reader__canvas__current'),
+        prev: document.getElementById('pdf-reader__canvas__prev'),
+        next: document.getElementById('pdf-reader__canvas__next'),
+    }
+    // canvas = document.getElementById('pdf-reader__canvas'),
+    // canvas_prev = document.getElementById('pdf-reader__canvas__prev'),
+    // canvas_next = document.getElementById('pdf-reader__canvas_next'),
 
-const url = canvas.dataset.pdf;
+let ctx = {};
+for (const [key, canvas] of Object.entries(canvases)) {
+    ctx[key] = canvas.getContext('2d');
+}
 
-// const loadingTask = pdfjsLib.getDocument(url);
+
+const url = canvases.current.dataset.pdf;
 
 pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
     pdfDoc = pdfDoc_;
-    document.getElementById('pdf-reader__page-info__total-pages').textContent = pdfDoc.numPages;
+    pageTotal = pdfDoc.numPages;
+    document.getElementById('pdf-reader__page-info__total-pages').textContent = pageTotal;
 
     // Initial/first page rendering
     renderPage(pageNum);
@@ -59,30 +69,40 @@ function calculatePageDimensions(canvas, page) {
 function renderPage(num) {
     pageRendering = true;
     // Using promise to fetch the page
-    pdfDoc.getPage(num).then(function(page) {
 
-        var viewport = calculatePageDimensions(canvas, page);
+    for (const [key, canvas] of Object.entries(canvases)) {
+        let render_page_number = num;
+        if(key === 'prev')
+            render_page_number = Math.max(num - 1, 0);
+        else if(key === 'next')
+            render_page_number = Math.min(pageTotal, num + 1)
+
+        pdfDoc.getPage(render_page_number).then(function(page) {
+
+            var viewport = calculatePageDimensions(canvas, page);
 
 
 
-        var renderContext = {
-            canvasContext: ctx,
-            viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
+            var renderContext = {
+                canvasContext: ctx[key],
+                viewport: viewport
+            };
+            var renderTask = page.render(renderContext);
 
-        // Wait for rendering to finish
-        renderTask.promise.then(function() {
-            pageRendering = false;
-            if (pageNumPending !== null) {
-                // New page rendering is pending
-                renderPage(pageNumPending);
-                pageNumPending = null;
-            }
+            // Wait for rendering to finish
+            renderTask.promise.then(function() {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    // New page rendering is pending
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+            });
+
+            if(key === 'current')
+                document.getElementById('pdf-reader__page-info__current-page').textContent = render_page_number;
         });
-    });
-
-     document.getElementById('pdf-reader__page-info__current-page').textContent = num;
+    }
 }
 
 /**
