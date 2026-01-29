@@ -12,8 +12,8 @@ var pdfDoc = null,
     scale = 1,
     canvases = {
         current: document.getElementById('pdf-reader__canvas__current'),
-        prev: document.getElementById('pdf-reader__canvas__prev'),
-        next: document.getElementById('pdf-reader__canvas__next'),
+        // prev: document.getElementById('pdf-reader__canvas__prev'),
+        // next: document.getElementById('pdf-reader__canvas__next'),
     }
     // canvas = document.getElementById('pdf-reader__canvas'),
     // canvas_prev = document.getElementById('pdf-reader__canvas__prev'),
@@ -72,8 +72,12 @@ function renderPage(num) {
 
     for (const [key, canvas] of Object.entries(canvases)) {
         let render_page_number = num;
-        if(key === 'prev')
+        if(key === 'prev') {
+            if(num === pageNum - 1) {
+
+            }
             render_page_number = Math.max(num - 1, 0);
+        }
         else if(key === 'next')
             render_page_number = Math.min(pageTotal, num + 1)
 
