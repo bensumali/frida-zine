@@ -14,7 +14,6 @@ get_header();
 
         <div id="single-page-header">
             <div id="single-page-header__image">
-                <img alt="Decorative background image for the page header" src="/wp-content/themes/frida-zinema/img/issues.jpg" />
             </div>
             <h1><?php echo get_queried_object()->name; ?></h1>
         </div>
